@@ -1,0 +1,388 @@
+@import url("reset.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  font: normal 16px Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+#nav-toggle, #nav-toggle-label {
+  display: none;
+}
+
+/* -------NAV MENU-------- */
+nav {
+  width: 335px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 70px 0 0 0;
+  background: #464f77;
+  color: #ccced8;
+}
+
+nav ul {
+  padding-bottom: 60px;
+}
+
+nav ul li:first-of-type {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+nav a {
+  display: block;
+  padding: 10px 30px 0 136px;
+  position: relative;
+  height: 40px;
+}
+
+a.active {
+  background: #383f5f;
+  color: #ffffff;
+}
+
+nav img {
+  position: absolute;
+  left: 100px;
+  top: 5px;
+}
+
+nav dl:before, nav dl:after {
+  display: table;
+  content: "";
+}
+
+nav dl:after {
+  clear: both;
+}
+
+nav dt {
+  float: left;
+}
+
+nav dd {
+  float: right;
+}
+
+/* -------MAIN-------- */
+
+main {
+  padding: 75px 100px 0 30px;
+  height: 100%;
+  margin-left: 335px;
+  position: relative;
+  min-width: 500px;
+}
+
+main header h1 {
+  font-size: 21px;
+  font-weight: lighter;
+  padding-right: 20px;
+}
+
+main header h1, .badge {
+  display: inline;
+  vertical-align: middle;
+}
+
+#todos {
+  padding-top: 40px;
+}
+
+#todos > li ~ li {
+  border-top: 2px solid #e7e7e7;
+  height: 50px;
+  position: relative;
+}
+
+#todos > li:before, #todos > li:after {
+  display: table;
+  content: "";
+}
+
+#todos > li:after {
+  clear: both;
+}
+
+#todos input[type="checkbox"], #todos input[type="submit"] {
+    display:none;
+}
+
+label {
+  cursor: pointer;
+}
+
+#new {
+  padding-bottom: 14px;
+  color: #4ba1db;
+}
+
+#new img {
+  padding-right: 12px;
+}
+
+.square + label {
+  margin-right: 12px;
+}
+
+input[type="checkbox"].square + label span {
+    display:inline-block;
+    width:14px;
+    height:14px;
+    background:url("../images/unchecked.png") left top no-repeat;
+}
+
+input[type="checkbox"].square:checked + label span {
+    background:url("../images/checked.png") left top no-repeat;
+}
+
+#modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+  display: none;
+}
+
+#item1_name:checked + #modal {
+  display: block;
+}
+
+#modal #form {
+  position: absolute;
+  width: 575px;
+  height: 400px;
+  background: #ffffff;
+  left: 50%;
+  margin-left: -287px;
+  top: 200px;
+  padding: 40px 30px;
+  color: #000000;
+}
+
+#modal dl:before, #modal dl:after {
+  display: table;
+  content: "";
+}
+
+#modal dl:after {
+  clear: both;
+}
+
+#modal dl {
+  padding-bottom: 24px;
+}
+
+#modal dt {
+  float: left;
+  width: 20%;
+  line-height: 36px;
+  vertical-align: middle;
+}
+
+#modal dd {
+  float: right;
+  width: 80%;
+}
+
+#modal input[type="number"], #modal input[type="text"] {
+  height: 36px;
+  padding-left: 9px;
+  font-size: 16px;
+}
+
+#modal select {
+   height: 36px;
+  padding-left: 9px;
+  font-size: 16px;
+  width:32.5%;
+}
+
+#modal input[type="text"] {
+  width: 100%;
+}
+
+#modal input[type="number"] {
+  width: 30%;
+}
+
+#modal input[type="number"] + span {
+  display: inline-block;
+  width: 5%;
+  text-align: center;
+}
+
+#modal textarea {
+  width: 100%;
+  height: 144px;
+  padding: 9px;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+#modal input[type="submit"] {
+  display: inline-block;
+  padding: 0;
+}
+
+.blue_button {
+  width: 180px;
+  height: 40px;
+  background: #148fd5;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.badge {
+  border-radius: 50%;
+  font-size: 14px;
+  padding: 2px 5px;
+  background: #6b7292;
+  text-align: center;
+}
+
+.badge-selected {
+  background: #148fd5;
+  color: #ffffff;
+}
+
+#buttons {
+  padding-left: 105px;
+}
+
+
+.todo label.check, .todo label.name {
+  float: left;
+}
+
+/*.todo div.delete {
+  float: right;
+  background: white;
+  position: absolute;
+  right: 0;
+  top: 0; 
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  padding-top: 15px;
+}*/
+
+.todo label.name:hover {
+  color: #4ba1db;
+}
+
+#todos li[data-completed=true] span {
+   text-decoration: line-through;
+   color: #b3b3b3;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #b3b3b3;
+}
+
+.todo label.completed:hover {
+  color: #b3b3b3;
+}
+
+#todos span.name:hover {
+  color: #148FD5;
+  cursor: pointer;
+}
+
+/*#todos > li ~ li:hover {
+  background: #CCE0F5;
+}*/
+
+
+#todos dl {
+ height: 50px;
+}
+
+
+#todos dt {
+  width: 94%;
+  height: 50px;
+  padding-left: 20px;
+  padding-top: 15px;
+  float: left;
+  
+}
+
+#todos dt:hover {
+  background: #CCE0F5;
+  
+}
+
+#todos dd {
+  float: right;
+  width: 6%;
+  padding: 13px 0;
+}
+
+#todos dd:hover {
+  background: lightcoral;
+}
+
+.delete {
+  text-align: center;
+}
+
+.delete img {
+  height: 20px;
+  width: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  /*When narrow screen, display burger button, hide nav make header and main take 100%*/
+
+  #nav-toggle-label {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    z-index: 1;
+  }
+
+  nav {
+    position: fixed;
+    left: -335px;
+  }
+
+  header, main {
+    margin-left: 0;
+  }
+
+  /*When burger button is clicked, move header, nav, main and burger button 335px left */
+
+  #nav-toggle:checked ~ main, #nav-toggle:checked ~ header, #nav-toggle:checked ~ #nav-toggle-label {
+    margin-left: 335px;
+  }
+
+  #nav-toggle:checked ~ nav {
+    left: 0;
+  }
+
+}
